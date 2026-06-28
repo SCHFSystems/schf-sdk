@@ -33,7 +33,7 @@ interface ConnectorInterface
     public function getDriverName(): string;
 
     /**
-     * @return array{table_name: string, columns: array<array{name: string, type: string, nullable: bool, default: mixed}>}[]
+     * @return array{table_name: string, columns: array<string, array{name: string, type: string, length?: int, scale?: int, nullable: bool, default: mixed}>}[]
      */
     public function getSchema(): array;
 
