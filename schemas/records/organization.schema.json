@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/records/organization.schema.json",
+  "title": "Organization Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["external_id", "name"],
+  "properties": {
+    "external_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "legal_name": { "type": ["string", "null"] },
+    "metadata": { "type": "object" }
+  }
+}

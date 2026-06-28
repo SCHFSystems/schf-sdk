@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: SCHF Core Migration Bundle Import API
+  version: 1.0.0
+  description: Contract for validating, previewing, and importing Migration Bundles.
+paths:
+  /api/system/migration/bundles/validate:
+    post:
+      summary: Validate a Migration Bundle
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [bundle]
+              properties:
+                bundle:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Validation result
+  /api/system/migration/bundles/preview:
+    post:
+      summary: Preview a Migration Bundle import
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [bundle]
+              properties:
+                bundle:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Import preview
+  /api/system/migration/bundles/import:
+    post:
+      summary: Import a validated Migration Bundle
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [bundle, confirm]
+              properties:
+                bundle:
+                  type: string
+                  format: binary
+                confirm:
+                  type: boolean
+      responses:
+        '200':
+          description: Import report

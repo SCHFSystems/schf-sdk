@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/bundle/report.schema.json",
+  "title": "SCHF Migration Bundle Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "generated_at", "summary", "warnings", "errors"],
+  "properties": {
+    "status": { "type": "string", "enum": ["ready", "ready_with_warnings", "blocked"] },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "summary": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/records/payments.schema.json",
+  "title": "Payments File",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["external_id", "direction", "amount", "due_date", "status"],
+    "properties": {
+      "external_id": { "type": "string", "minLength": 1 },
+      "direction": { "type": "string", "enum": ["payable", "receivable"] },
+      "supplier_external_id": { "type": ["string", "null"] },
+      "account_external_id": { "type": ["string", "null"] },
+      "category_external_id": { "type": ["string", "null"] },
+      "description": { "type": ["string", "null"] },
+      "amount": { "type": "number" },
+      "due_date": { "type": "string", "format": "date" },
+      "paid_at": { "type": ["string", "null"], "format": "date" },
+      "status": { "type": "string", "enum": ["pending", "paid", "cancelled", "historical"] },
+      "metadata": { "type": "object" }
+    }
+  }
+}

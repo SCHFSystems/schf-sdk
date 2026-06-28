@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/normalization/mapping-profile.schema.json",
+  "title": "MappingProfile",
+  "type": "object",
+  "required": ["source_type", "profile", "version", "source_table", "target_entity", "rules"],
+  "properties": {
+    "source_type": { "type": "string" },
+    "profile": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "source_table": { "type": "string" },
+    "target_entity": { "type": "string" },
+    "description": { "type": "string" },
+    "rules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/MappingRule" }
+    }
+  },
+  "$defs": {
+    "MappingRule": {
+      "type": "object",
+      "required": ["source_column", "target_field"],
+      "properties": {
+        "source_column": { "type": "string" },
+        "target_field": { "type": "string" },
+        "transform": { "type": "string", "enum": ["trim", "upper", "lower", "date", "number", "boolean", "concat", "split", "map_values"] },
+        "value_map": { "type": "object" },
+        "default": { "type": ["string", "number", "boolean", "null"] },
+        "required": { "type": "boolean", "default": false },
+        "description": { "type": "string" }
+      }
+    }
+  }
+}

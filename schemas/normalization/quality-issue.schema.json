@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/normalization/quality-issue.schema.json",
+  "title": "QualityIssue",
+  "type": "object",
+  "required": ["type", "severity", "entity", "external_id", "field", "message"],
+  "properties": {
+    "type": { "type": "string", "enum": ["invalid_document", "empty_name", "invalid_date", "negative_value", "duplicate", "orphan", "missing_required"] },
+    "severity": { "type": "string", "enum": ["error", "warning"] },
+    "entity": { "type": "string" },
+    "external_id": { "type": "string" },
+    "field": { "type": "string" },
+    "message": { "type": "string" },
+    "value": {}
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "bundle_version": "1.0.0",
+  "sdk_version": "1.0.0",
+  "core_min_version": "1.5.0",
+  "core_max_version": null,
+  "generated_at": "2026-01-01T00:00:00Z",
+  "generator": {
+    "name": "schf-migration",
+    "version": "1.0.0",
+    "plugin": null
+  },
+  "organization": {
+    "external_id": "example-org",
+    "name": "Example Organization"
+  },
+  "source": {
+    "type": "unknown",
+    "product": null,
+    "version": null,
+    "inventory_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "files": [
+    {
+      "path": "organization.json",
+      "schema": "schemas/records/organization.schema.json",
+      "required": true,
+      "records": 1,
+      "sha256": "FE4F754B6330ACA38AA2F956D47B00E3C1B4A40CA1693929C051553C18DEFDE7"
+    },
+    {
+      "path": "users.json",
+      "schema": "schemas/records/users.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "roles.json",
+      "schema": "schemas/records/roles.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "permissions.json",
+      "schema": "schemas/records/permissions.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "suppliers.json",
+      "schema": "schemas/records/suppliers.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "accounts.json",
+      "schema": "schemas/records/accounts.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "banks.json",
+      "schema": "schemas/records/banks.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "categories.json",
+      "schema": "schemas/records/categories.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "payments.json",
+      "schema": "schemas/records/payments.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "expenses.json",
+      "schema": "schemas/records/expenses.schema.json",
+      "required": true,
+      "records": 0,
+      "sha256": "37517E5F3DC66819F61F5A7BB8ACE1921282415F10551D2DEFA5C3EB0985B570"
+    },
+    {
+      "path": "report.json",
+      "schema": "schemas/bundle/report.schema.json",
+      "required": true,
+      "records": 1,
+      "sha256": "D2837A5B15BA8E7A599612B5084BB150AC4D486CCEF377309E903B12C67D73C9"
+    }
+  ]
+}

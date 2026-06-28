@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/records/expenses.schema.json",
+  "title": "Expenses File",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["external_id", "amount", "date"],
+    "properties": {
+      "external_id": { "type": "string", "minLength": 1 },
+      "account_external_id": { "type": ["string", "null"] },
+      "category_external_id": { "type": ["string", "null"] },
+      "supplier_external_id": { "type": ["string", "null"] },
+      "description": { "type": ["string", "null"] },
+      "amount": { "type": "number" },
+      "date": { "type": "string", "format": "date" },
+      "status": { "type": "string", "enum": ["posted", "cancelled", "historical"], "default": "posted" },
+      "metadata": { "type": "object" }
+    }
+  }
+}

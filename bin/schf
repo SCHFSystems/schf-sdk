@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SCHF\SDK\Bundle\Cli\BundleCommand;
+
+$argv = $GLOBALS['argv'] ?? [];
+$argc = count($argv);
+
+if ($argc < 2) {
+    echo "SCHF CLI\n";
+    echo str_repeat('=', 50) . "\n";
+    echo "Usage: schf <command> [options]\n\n";
+    echo "Commands:\n";
+    echo "  bundle    Bundle operations (build, validate, doctor, etc.)\n";
+    echo "  help      Show this help\n";
+    exit(0);
+}
+
+$command = $argv[1];
+
+exit(match ($command) {
+    'bundle' => BundleCommand::execute($argv),
+    'help', '--help', '-h' => (printf("Usage: schf <command>\n\nCommands:\n  bundle    Bundle operations\n  help      Show this help\n") ? 0 : 0),
+    default => (printf("Unknown command: %s\n", $command) ? 1 : 1),
+});

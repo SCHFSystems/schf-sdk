@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/records/users.schema.json",
+  "title": "Users File",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["external_id", "name", "email", "roles"],
+    "properties": {
+      "external_id": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 },
+      "email": { "type": "string", "format": "email" },
+      "roles": { "type": "array", "items": { "type": "string" } },
+      "active": { "type": "boolean", "default": true },
+      "metadata": { "type": "object" }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/normalization/normalization-result.schema.json",
+  "title": "NormalizationResult",
+  "type": "object",
+  "properties": {
+    "organizations": { "type": "array", "items": { "$ref": "../records/organization.schema.json" } },
+    "users": { "type": "array", "items": { "$ref": "../records/users.schema.json" } },
+    "suppliers": { "type": "array", "items": { "$ref": "../records/suppliers.schema.json" } },
+    "accounts": { "type": "array", "items": { "$ref": "../records/accounts.schema.json" } },
+    "categories": { "type": "array", "items": { "$ref": "../records/categories.schema.json" } },
+    "payables": { "type": "array", "items": { "$ref": "../records/payments.schema.json" } },
+    "expenses": { "type": "array", "items": { "$ref": "../records/expenses.schema.json" } },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "severity", "entity", "external_id", "field", "message"],
+        "properties": {
+          "type": { "type": "string", "enum": ["invalid_document", "empty_name", "invalid_date", "negative_value", "duplicate", "orphan", "missing_required"] },
+          "severity": { "type": "string", "enum": ["error", "warning"] },
+          "entity": { "type": "string" },
+          "external_id": { "type": "string" },
+          "field": { "type": "string" },
+          "message": { "type": "string" },
+          "value": {}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "total_organizations": { "type": "integer" },
+        "total_users": { "type": "integer" },
+        "total_suppliers": { "type": "integer" },
+        "total_accounts": { "type": "integer" },
+        "total_categories": { "type": "integer" },
+        "total_payables": { "type": "integer" },
+        "total_expenses": { "type": "integer" },
+        "total_issues": { "type": "integer" },
+        "total_errors": { "type": "integer" },
+        "total_warnings": { "type": "integer" }
+      }
+    }
+  }
+}

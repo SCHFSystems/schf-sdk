@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/records/categories.schema.json",
+  "title": "Categories File",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["external_id", "name", "type"],
+    "properties": {
+      "external_id": { "type": "string", "minLength": 1 },
+      "parent_external_id": { "type": ["string", "null"] },
+      "name": { "type": "string", "minLength": 1 },
+      "type": { "type": "string", "enum": ["income", "expense", "transfer", "other"] },
+      "metadata": { "type": "object" }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.schf.local/records/suppliers.schema.json",
+  "title": "Suppliers File",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["external_id", "name"],
+    "properties": {
+      "external_id": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 },
+      "document": { "type": ["string", "null"] },
+      "active": { "type": "boolean", "default": true },
+      "metadata": { "type": "object" }
+    }
+  }
+}
