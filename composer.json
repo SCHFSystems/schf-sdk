@@ -1,0 +1,17 @@
+{
+    "name": "joao-aschenbrenner/schf-sdk",
+    "description": "SCHF SDK — contratos oficiais do ecossistema SCHF (Migration Bundle, conectores, schemas)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SCHF\\SDK\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
+}
