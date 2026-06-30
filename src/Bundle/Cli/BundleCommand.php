@@ -34,18 +34,13 @@ class BundleCommand
             'history' => self::history($argv),
             'version' => self::versionInfo(),
             'help' => self::usage(),
-            default => (self::usage(), 1),
+            default => self::usageError(),
         };
     }
 
     private static function build(array $argv): int
     {
         $options = self::parseOptions($argv, 3);
-
-        if (!isset($options['_'][0])) {
-            fwrite(STDERR, "Usage: schf bundle build --org-id=<id> --org-name=<name> [--source-type=<type>] [--output=<path>]\n");
-            return 1;
-        }
 
         $output = $options['output'] ?? null;
         $orgId = $options['org-id'] ?? $options['organization-id'] ?? 'unknown';
@@ -211,7 +206,7 @@ class BundleCommand
 
         $orgs = $inspector->getOrganizations();
         if (!empty($orgs)) {
-            echo "\nOrganizations: " . count($orgs) . "\n";
+            echo "\nOrganization: " . ($orgs['name'] ?? 'unknown') . "\n";
         }
 
         $suppliers = $inspector->getSuppliers();
@@ -389,5 +384,11 @@ class BundleCommand
         echo "  version   Show bundle version info\n";
         echo "  help      Show this help\n";
         return 0;
+    }
+
+    private static function usageError(): int
+    {
+        self::usage();
+        return 1;
     }
 }

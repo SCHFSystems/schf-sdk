@@ -94,13 +94,13 @@ class Builder
                 'path' => $path,
                 'schema' => $schema,
                 'required' => true,
-                'records' => count($this->records[basename($path)] ?? []),
+                'records' => $path === 'organization.json' ? 1 : count($this->records[basename($path)] ?? []),
             ];
         }
 
         return [
             'bundle_version' => Version::CURRENT,
-            'sdk_version' => Version::SDK_MIN,
+            'sdk_version' => Version::CURRENT,
             'core_min_version' => Version::CORE_MIN,
             'source' => $this->source,
             'files' => $files,
@@ -183,7 +183,7 @@ class Builder
 
         return Manifest::create(
             Version::CURRENT,
-            Version::SDK_MIN,
+            Version::CURRENT,
             Version::CORE_MIN,
             $this->generator,
             $this->organization,

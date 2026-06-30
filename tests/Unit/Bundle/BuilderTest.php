@@ -70,7 +70,9 @@ class BuilderTest extends TestCase
         $this->assertArrayHasKey('bundle_version', $preview);
         $this->assertArrayHasKey('files', $preview);
         $this->assertArrayHasKey('total_records', $preview);
+        $this->assertSame('1.0.0', $preview['sdk_version']);
         $this->assertGreaterThan(0, $preview['total_records']);
+        $this->assertEquals(1, $preview['files'][0]['records']);
     }
 
     public function testBuildWithMultipleRecordTypes()
